@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uncover the Unseen</title>
+  <link rel="stylesheet" href="static/decrypt.css">
+</head>
+<body>
+<!-- Title Section -->
+<div class="title">
+  <h1>Unlocking Mysteries: The Power of Decryption</h1><br>
+  <p>Behind every encrypted message lies a story waiting to be unveiled through the art of decryption.</p>
+ 
+</div>
+
+<!-- Form Section -->
+<form action="/decrypt" method="post" enctype="multipart/form-data">
+  <div class="hero">
+    <!-- Label for file input -->
+    <label for="image" id="drop-area">
+      <input type="file" accept="image/*" id="image" name="image" style="display:none;">
+      <div id="img-view">
+        <img src="static/icon12.png">
+        <p>Click here to upload Image</p>
+        <span>Upload any images from desktop</span>
+        <!-- Upload Button Inside the Box -->
+        <button type="submit" class="btn btn-primary d-block w-100">Upload</button>
+      </div>
+    </label>
+  </div>
+</form>
+
+</body>
+</html>

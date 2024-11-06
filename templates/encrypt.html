@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Embed Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/encrypt.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <video autoplay loop muted plays-inline class="background-clip">
+            <source src="static/hello.mp4" type="video/mp4">
+        </video>
+        <div class="container-card">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card p-4 shadow rounded">
+                        <div class="card-body">
+                            <h3 class="card-title text-center">Encryption</h3>
+                            
+                            <form id="encryptionForm" class="needs-validation" method="post" action="/hello" novalidate>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <input type="text" class="form-control" id="message" name="message"
+                                        placeholder="Enter text to be encrypted" aria-describedby="messageHelp" required />
+                                    <div id="messageHelp" class="form-text">Enter the message you want to encrypt.</div>
+                                </div>
+                                <br>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-primary d-block w-100" onclick="submitForm()">Submit</button>
+                                    <div class="popup" id="popup">
+                                        <img src="static/404-tick.png">
+                                        <h2>Thankyou</h2>
+                                        <p>Your Message Has been successfully Encrypted! Thanks!</p>
+                                        <button type="button" onclick="closePopup()">OK </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+              </div>
+            </div>
+        </div>
+    </div>
+<script>
+    let popup = document.getElementById("popup");
+
+    function openPopup() {
+        popup.classList.add("open-popup");
+    }
+
+    function closePopup() {
+        popup.classList.remove("open-popup");
+        // After closing the popup, redirect to the upload page
+        window.location.href = "/upload";
+    }
+
+    function submitForm() {
+        // Submit the form data using AJAX
+        let formData = new FormData(document.getElementById("encryptionForm"));
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "/hello");
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                openPopup(); // Trigger popup after successful response from server
+            }
+        };
+        xhr.send(formData);
+    }
+</script>
+</body>
+</html>

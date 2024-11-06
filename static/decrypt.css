@@ -1,0 +1,102 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    background:#c57bae;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .title {
+    text-align: center;
+    padding: 10px 0;
+    /* Remove min-height property */
+    /* min-height: 200px; */
+    background: #c57bae;
+    overflow: hidden; /* Use hidden or auto to handle overflow */
+    /* Add padding-bottom property */
+    padding-bottom: 20px;
+  }
+  /* 
+  .title {
+    text-align: center;
+    padding: 10px 0;
+    min-height: 200px; /* Set a specific height */
+    /* background: #e7baff; */
+    /* overflow: hidden; Use hidden or auto to handle overflow */
+  
+  .title h1 {
+    font-size: 50px;
+    color: #333; /* Change color as needed */
+    font-family: "Lucida Handwriting", cursive;
+  
+   
+    margin: 0; /* Remove default margin */
+    
+  }
+  
+  .title p{
+    font-size: 20px;
+   
+  }
+  #drop-area {
+    width: 700px;
+    height: 400px;
+    padding: 30px;
+    background: #fff;
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 5px;
+    background: #fff;
+    
+  }
+  
+  #img-view {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: 2px dashed #bbb5ff;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #img-view img {
+    width: 100px;
+    margin-top: 25px;
+  }
+  
+  #img-view span {
+    display: block;
+    font-size: 12px;
+    color: #777;
+    margin-top: 15px;
+  }
+  
+  .btn-primary {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }

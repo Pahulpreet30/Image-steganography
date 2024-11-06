@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uncover the Unseen</title>
+  <link rel="stylesheet" href="static/Upload.css">
+</head>
+<body>
+<!-- Title Section -->
+<div class="title">
+  <h1>Uncover the Unseen</h1><br>
+  <p>Welcome to the realm of Image steganography, where images hold secrets beyond the visible! Dive into the art of image steganography and explore the power of hidden messages.</p>
+ 
+</div>
+
+<!-- Form Section -->
+<form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+  <div class="hero">
+    <!-- Label for file input -->
+    <label for="image" id="drop-area">
+      <input type="file" accept="image/*" id="image" name="image" style="display:none;">
+      <div id="img-view">
+        <img src="static/icon12.png">
+        <p>Click here to upload Image</p>
+        <span>Upload any images from desktop</span>
+        <!-- Upload Button Inside the Box -->
+        <div>
+          <button type="button" class="btn btn-primary d-block w-100" onclick="submitForm()">Upload</button>
+        </div>
+      </div>
+    </label>
+  </div>
+</form>
+
+<!-- Popup Section -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <img src="static/404-tick.png">
+    <h2>Thank You</h2>
+    <p>Your image has been successfully uploaded!</p>
+    <button type="button" onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+<script>
+  let popup = document.getElementById("popup");
+
+  function openPopup() {
+    popup.classList.add("open-popup");
+  }
+
+  function closePopup() {
+    popup.classList.remove("open-popup");
+    window.location.href = "/"; // Redirect to index.html after closing popup
+  }
+
+  function submitForm() {
+    // Submit the form asynchronously using AJAX
+    let formData = new FormData(document.getElementById("uploadForm"));
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "/upload");
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        openPopup(); // Display the popup after successful submission
+      }
+    };
+    xhr.send(formData);
+  }
+</script>
+
+</body>
+</html>
